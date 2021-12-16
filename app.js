@@ -12,6 +12,69 @@ document.addEventListener('DOMContentLoaded', ()=> {
     const rotateButton = document.querySelector('#rotate');
     const turndisplay = document.querySelector('#whose-go');
     const infoDisplay = document.querySelector('#info');
+    const userSquares = [];
+    const computerSquares = [];
 
-    
+    const width = 10;
+
+    //Create board
+    function createBoard(grid, squares) {
+        for (let i = 0; i < width*width; i++) {
+            const square = document.createElement('div');
+            square.dataset.id = i;
+            grid.appendChild(square);
+            squares.push(square);
+        }
+    }
+
+    createBoard(userGrid, userSquares);
+    createBoard(computerGrid, computerSquares);
+
+    //Ships
+    const shipsArray = [
+        {
+            name: 'destroyer',
+            directions: [
+             [0, 1],
+             [0, width],
+            ]
+        },
+        {   
+            name: 'submarine',
+            directions: [
+                [0, 1, 2],
+                [0, width, width*2]
+            ]
+        },
+        {   
+            name: 'cruiser',
+            directions: [
+                [0, 1, 2],
+                [0, width, width*2]
+            ]
+        },
+        {   
+            name: 'battleship',
+            directions: [
+                [0, 1, 2, 3],
+                [0, width, width*2, width*3]
+            ]
+        },
+        {   
+            name: 'carrier',
+            directions: [
+                [0, 1, 2, 3, 4],
+                [0, width, width*2, width*3, width*4]
+            ]
+        }
+    ];
+
+    //Draw the computer ships in random locations
+    function generate(ship) {
+        let randomDirection = Math.floor(Math.random() * ship.directions.length)
+        let current = ship.directions[randomDirection];
+        if(randomDirection === 0) direction = 1;
+        if(randomDirection === 1) direction = 10;
+        let randomStart = Math.floor(Math.random() * computerSquares.length);
+    }
 })
