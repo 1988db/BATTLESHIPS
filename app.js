@@ -94,20 +94,30 @@ document.addEventListener('DOMContentLoaded', ()=> {
     //rotate sips
     function rotate() {
         if (isHorizontal) {
-            destroyer.classList.toggle('destroyer-container-vertical');
-            submarine.classList.toggle('submarine-container-vertical');
-            cruiser.classList.toggle('cruiser-container-vertical');
-            battleship.classList.toggle('battleship-container-vertical');
-            carrier.classList.toggle('carrier-container-vertical');
+            destroyer.classList.remove('destroyer-container');
+            submarine.classList.remove('submarine-container');
+            cruiser.classList.remove('cruiser-container');
+            battleship.classList.remove('battleship-container');
+            carrier.classList.remove('carrier-container');
+            destroyer.classList.add('destroyer-container-vertical');
+            submarine.classList.add('submarine-container-vertical');
+            cruiser.classList.add('cruiser-container-vertical');
+            battleship.classList.add('battleship-container-vertical');
+            carrier.classList.add('carrier-container-vertical');
             isHorizontal = false;
             return;
         }
         if (!isHorizontal) {
-            destroyer.classList.toggle('destroyer-container');
-            submarine.classList.toggle('submarine-container');
-            cruiser.classList.toggle('cruiser-container');
-            battleship.classList.toggle('battleship-container');
-            carrier.classList.toggle('carrier-container');
+            destroyer.classList.add('destroyer-container');
+            submarine.classList.add('submarine-container');
+            cruiser.classList.add('cruiser-container');
+            battleship.classList.add('battleship-container');
+            carrier.classList.add('carrier-container');
+            destroyer.classList.remove('destroyer-container-vertical');
+            submarine.classList.remove('submarine-container-vertical');
+            cruiser.classList.remove('cruiser-container-vertical');
+            battleship.classList.remove('battleship-container-vertical');
+            carrier.classList.remove('carrier-container-vertical');
             isHorizontal = true;
             return;
         }
