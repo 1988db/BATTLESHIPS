@@ -124,4 +124,13 @@ document.addEventListener('DOMContentLoaded', ()=> {
     }
 
     rotateButton.addEventListener('click', rotate);
+
+    //move around user ship
+    ships.forEach(ship => ship.addEventListener('dragstart', dragStart));
+    userSquares.forEach(square => addEventListener('dragStart', dragStart))
+    userSquares.forEach(square => addEventListener('dragover', dragOver))
+    userSquares.forEach(square => addEventListener('dragenter', dragEnter))
+    userSquares.forEach(square => addEventListener('dragleave', dragLeave))
+    userSquares.forEach(square => addEventListener('drop', drop))
+
 })
