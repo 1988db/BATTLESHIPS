@@ -127,10 +127,46 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     //move around user ship
     ships.forEach(ship => ship.addEventListener('dragstart', dragStart));
-    userSquares.forEach(square => addEventListener('dragStart', dragStart))
-    userSquares.forEach(square => addEventListener('dragover', dragOver))
-    userSquares.forEach(square => addEventListener('dragenter', dragEnter))
-    userSquares.forEach(square => addEventListener('dragleave', dragLeave))
-    userSquares.forEach(square => addEventListener('drop', drop))
+   // userSquares.forEach(square => addEventListener('dragStart', dragStart))
+  //  userSquares.forEach(square => addEventListener('dragover', dragOver))
+ //   userSquares.forEach(square => addEventListener('dragenter', dragEnter))
+ //   userSquares.forEach(square => addEventListener('dragleave', dragLeave))
+ //   userSquares.forEach(square => addEventListener('drop', drop))
+ //   userSquares.forEach(square => addEventListener('dragend', dragEnd))
+
+    let selectedShipNameWithIndex;
+    let draggedShip;
+    let draggedShipLength;
+
+    ships.forEach(ship => ship.addEventListener('mousedown', (e) => {
+        selectedShipNameWithIndex = e.target.id;
+        console.log(selectedShipNameWithIndex);
+    }))
+
+    function dragStart() {
+        draggedShip = this;
+        draggedShipLength = draggedShip.length;
+        console.log(draggedShip)
+    }
+
+    function dragOver() {
+
+    }
+
+    function dragEnter() {
+
+    }
+
+    function dragLeave() {
+
+    }
+
+    function dragDrop() {
+
+    }
+
+    function dragEnd() {
+
+    }
 
 })
