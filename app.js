@@ -178,7 +178,13 @@ document.addEventListener('DOMContentLoaded', ()=> {
             for (let i=0; i < draggedShipLength; i++) {
                 userSquares[parseInt(e.target.dataset.id) - selectedShipIndex +i].classList.add('taken', shipClass);
             }
-        }
+        } else if (!isHorizontal) {
+            for (let i=0; i < draggedShipLength; i++) {
+                userSquares[parseInt(e.target.dataset.id) - selectedShipIndex*width +i*width].classList.add('taken', shipClass);
+            }
+        } else return;
+
+        displayGrid.removeChild(draggedShip);
     }
 
     function dragEnd() {
