@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     function dragStart() {
         draggedShip = this;
-        draggedShipLength = draggedShip.length;
+        draggedShipLength = this.childNodes.length;        
         console.log(draggedShip)
     }
 
@@ -161,10 +161,24 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     }
 
-    function dragDrop() {
-        let shipNameWithLastId = draggedShip.lastChild.id;
+    function dragDrop(e) {
+        let shipNameWithLastId = draggedShip.lastChild.id;        
         let shipClass = shipNameWithLastId.slice(0,-2);
         console.log(shipClass);
+        let lastShipIndex = parseInt(shipNameWithLastId.substr(-1));
+        let shipLastId = lastShipIndex + parseInt(e.target.dataset.id);       
+        console.log('targrt ' + e.target.dataset.id)
+        selectedShipIndex = parseInt(selectedShipNameWithIndex.substr(-1));
+        console.log('selected ship index' + selectedShipIndex);
+
+        shipLastId = shipLastId - selectedShipIndex;
+        console.log(shipLastId)
+
+        if(isHorizontal) {
+            for (let i=0; i < draggedShipLength; i++) {
+                userSquares[parseInt(e.target.dataset.id) - selectedShipIndex +i].classList.add('taken', shipClass);
+            }
+        }
     }
 
     function dragEnd() {
